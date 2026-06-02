@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: eventData.metadata.title,
   description: eventData.metadata.description,
-  keywords: eventData.metadata.keywords,
+  keywords: [...eventData.metadata.keywords],
 };
 
 export default function RootLayout({
