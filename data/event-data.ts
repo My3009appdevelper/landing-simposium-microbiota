@@ -386,11 +386,11 @@ export const eventData = {
     ] as ProgramDay[],
   },
   venue: {
-    name: "Por confirmar",
-    address: "Dirección por confirmar",
+    name: "Oficinas de Yakult de Puebla",
+    address: "C. 33 Sur 2505, Sta Cruz los Ángeles, 72400 Heroica Puebla de Zaragoza, Pue.",
     city: "Puebla, México",
     modality: "Presencial / Híbrida / Virtual",
-    checkIn: "Por confirmar",
+    checkIn: "Check-in: acreditación presencial de 8:30 a 9:00 hrs en recepción del recinto.",
     mapPlaceholderTitle: "Espacio del evento",
   },
   registration: {
@@ -405,10 +405,10 @@ export const eventData = {
     secondaryCta: "Solicitar información",
   },
   accessOptions: [
-    { name: "Estudiantes", description: "Acceso académico con requisitos de identificación estudiantil.", price: "Por confirmar" },
-    { name: "Profesionales", description: "Acceso integral a conferencias y materiales.", price: "Por confirmar" },
-    { name: "Modalidad virtual", description: "Participación remota con acceso a sesiones online.", price: "Por confirmar" },
-    { name: "Instituciones / grupos", description: "Registro de varios integrantes con coordinación previa.", price: "Por confirmar" },
+    { name: "Estudiantes", description: "Acceso académico con requisitos de identificación estudiantil.", price: "$50" },
+    { name: "Profesionales", description: "Acceso integral a conferencias y materiales.", price: "$75" },
+    { name: "Modalidad virtual", description: "Participación remota con acceso a sesiones online.", price: "$100" },
+    { name: "Instituciones / grupos", description: "Registro de varios integrantes con coordinación previa.", price: "$150" },
   ] as AccessLevel[],
   faq: [
     {
@@ -456,4 +456,3 @@ export const eventData = {
     ],
   },
 } as const;
-

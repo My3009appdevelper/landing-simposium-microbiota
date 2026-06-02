@@ -15,13 +15,13 @@ export default function RegistrationSection() {
       />
       <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
         <div className="symbi-card-subtle rounded-3xl p-6 shadow-sm">
-          <ol className="grid gap-4 sm:grid-cols-2">
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {eventData.registration.steps.map((step, index) => (
               <li
                 key={step}
                 className="relative rounded-2xl border border-[#C8104A]/20 bg-[#F8FAFC] p-4"
               >
-                <span className="absolute left-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-[#C8104A] text-xs font-bold text-white">
+                <span className="absolute left-3 top-1/2 h-6 w-6 -translate-y-1/2 transform items-center justify-center rounded-full bg-[#C8104A] text-xs font-bold text-white flex">
                   {index + 1}
                 </span>
                 <p className="pl-8 text-sm leading-7 text-[#0F172A]">{step}</p>
