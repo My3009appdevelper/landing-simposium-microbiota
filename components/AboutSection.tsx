@@ -1,0 +1,38 @@
+import { eventData } from "@/data/event-data";
+import SectionHeader from "./SectionHeader";
+
+export default function AboutSection() {
+  return (
+    <section id="acerca" className="mx-auto mt-16 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Qué es"
+        title={eventData.about.title}
+        description={eventData.about.description}
+      />
+      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {eventData.highlights.map((item) => (
+          <article
+            key={item.label}
+            className="symbi-card rounded-3xl p-6 shadow-sm transition hover:translate-y-[-4px] hover:shadow-md"
+          >
+            <p className="text-4xl font-semibold text-[#C8104A]">{item.value}</p>
+            <p className="mt-3 text-lg font-semibold text-[#0F172A]">{item.label}</p>
+          </article>
+        ))}
+      </div>
+      <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+        <p className="rounded-3xl border border-white bg-white/90 p-6 text-base leading-7 text-[#475569] shadow-sm">
+          {eventData.audience}
+        </p>
+        <ul className="symbi-card-subtle grid gap-3 rounded-3xl border border-white bg-white/95 p-6 shadow-sm">
+          {eventData.about.bullets.map((bullet) => (
+            <li key={bullet} className="flex items-start gap-2 text-sm text-[#0F172A]">
+              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#22D3EE]" />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

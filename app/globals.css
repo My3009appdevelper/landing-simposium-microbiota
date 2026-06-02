@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --yakult-red: #d71920;
+  --yakult-magenta: #c8104a;
+  --deep-violet: #312e81;
+  --deep-blue: #172554;
+  --teal: #22d3ee;
+  --text-main: #0f172a;
+  --text-soft: #475569;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #f8fafc;
+  --color-foreground: var(--text-main);
+  --font-sans: "Inter", "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "Inter", "Manrope", "Avenir Next", "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --panel-bg: rgba(255, 255, 255, 0.97);
+  --panel-border: rgba(15, 23, 42, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  letter-spacing: -0.006em;
+}
+
+section {
+  scroll-margin-top: 72px;
+}
+
+a,
+button,
+summary,
+input,
+select,
+textarea {
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.text-block {
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+.symbi-card {
+  background: var(--panel-bg) !important;
+  border-color: var(--panel-border) !important;
+}
+
+.symbi-card-subtle {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(248, 250, 252, 0.78);
+}
+
+.bg-pattern-band {
+  position: relative;
+}
+
+.bg-pattern-band::before,
+.bg-pattern-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fade-in-up {
+  animation: fade-up 0.7s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtle-float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-6px) translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
