@@ -1,6 +1,24 @@
 import { eventData } from "@/data/event-data";
 import DecorativeBioticsPattern from "./DecorativeBioticsPattern";
 
+const statAccentStyles = [
+  {
+    card: "border-[#C8104A]/35 bg-[#FBE8EC]",
+    label: "text-[#A10D35]",
+    value: "text-[#C8104A]",
+  },
+  {
+    card: "border-[#7E3A9D]/35 bg-[#F3ECFB]",
+    label: "text-[#6A2F87]",
+    value: "text-[#7E3A9D]",
+  },
+  {
+    card: "border-[#1E40AF]/35 bg-[#E6F0FF]",
+    label: "text-[#1E3A8A]",
+    value: "text-[#1E40AF]",
+  },
+] as const;
+
 export default function HeroSection() {
   const { brand, hero, heroStats } = eventData;
   return (
@@ -28,22 +46,24 @@ export default function HeroSection() {
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {heroStats.map((stat) => (
-              <article
-                key={stat.label}
-                className="symbi-card-subtle rounded-2xl border border-white/55 bg-white/25 p-4 shadow-lg shadow-black/5 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/35"
-              >
-                <p className="text-sm uppercase tracking-wider text-white/80">
-                  {stat.label}
-                </p>
-                <p className="mt-1 text-xl font-semibold text-white sm:text-2xl drop-shadow-sm">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-sm text-white/85">{stat.description}</p>
-              </article>
-            ))}
+            {heroStats.map((stat, index) => {
+              const accent = statAccentStyles[index % statAccentStyles.length];
+              return (
+                <article
+                  key={stat.label}
+                  className={`rounded-2xl border p-4 shadow-lg shadow-black/10 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white ${accent.card}`}
+                >
+                  <p className={`text-sm uppercase tracking-wider ${accent.label}`}>
+                    {stat.label}
+                  </p>
+                  <p className={`mt-1 text-xl font-semibold sm:text-2xl ${accent.value}`}>
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-sm text-[#475569]">{stat.description}</p>
+                </article>
+              );
+            })}
           </div>
-
         </div>
       </DecorativeBioticsPattern>
     </section>

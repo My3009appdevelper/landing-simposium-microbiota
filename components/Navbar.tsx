@@ -56,9 +56,8 @@ export default function Navbar() {
           : "border-[#cbd5e1] bg-white"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-3 py-3 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-2 lg:px-8">
-        <div className="flex w-full items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-3 py-3 sm:px-6 lg:flex-row lg:items-center lg:gap-4 lg:px-8">
+        <div className="flex w-full items-center justify-between gap-2 lg:w-auto lg:shrink-0">
           <SmoothScrollLink
             href="#inicio"
             className="shrink-0 text-sm font-bold tracking-wide text-[#C8104A] sm:text-base"
@@ -66,49 +65,47 @@ export default function Navbar() {
           >
             {eventData.brand.logoTitle}
           </SmoothScrollLink>
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="flex min-w-0 gap-2 lg:hidden">
             <SmoothScrollLink
               href={eventData.event.registrationLink}
-              className="inline-flex rounded-full bg-[#C8104A] px-4 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#9B1B5A] sm:text-sm"
+              className="inline-flex min-w-0 shrink-0 rounded-full bg-[#C8104A] px-3 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#9B1B5A]"
             >
               {eventData.hero.ctaPrimary}
             </SmoothScrollLink>
             <SmoothScrollLink
               href="#programa"
-              className="inline-flex rounded-full border border-[#C8104A] bg-white px-4 py-2 text-xs font-semibold text-[#C8104A] transition hover:-translate-y-0.5 hover:bg-[#C8104A]/10 sm:text-sm"
+              className="inline-flex min-w-0 shrink-0 rounded-full border border-[#C8104A] bg-white px-3 py-2 text-xs font-semibold text-[#C8104A] transition hover:-translate-y-0.5 hover:bg-[#C8104A]/10"
             >
               {eventData.hero.ctaSecondary}
             </SmoothScrollLink>
           </div>
         </div>
-        <div className="flex min-w-0 gap-2 lg:hidden">
-          <SmoothScrollLink
-            href={eventData.event.registrationLink}
-            className="inline-flex min-w-0 shrink-0 rounded-full bg-[#C8104A] px-3 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#9B1B5A]"
-          >
-            {eventData.hero.ctaPrimary}
-          </SmoothScrollLink>
-          <SmoothScrollLink
-            href="#programa"
-            className="inline-flex min-w-0 shrink-0 rounded-full border border-[#C8104A] bg-white px-3 py-2 text-xs font-semibold text-[#C8104A] transition hover:-translate-y-0.5 hover:bg-[#C8104A]/10"
-          >
-            {eventData.hero.ctaSecondary}
-          </SmoothScrollLink>
-        </div>
-        </div>
-
-        <div className="relative hidden min-w-0 lg:flex lg:items-center lg:gap-2">
+        <div className="relative hidden min-w-0 lg:flex lg:flex-1 lg:items-center lg:justify-center">
           <nav className="items-center gap-1 lg:flex">
             {eventData.navItems.map((item) => (
               <SmoothScrollLink
                 key={item.id}
                 href={item.href}
-                className="rounded-full px-3 py-2 text-sm font-medium text-[#0F172A] transition-colors hover:text-[#C8104A]"
+                className="rounded-full px-2.5 py-2 text-sm font-medium text-[#0F172A] transition-colors hover:text-[#C8104A]"
               >
-              {item.label}
+                {item.label}
               </SmoothScrollLink>
             ))}
           </nav>
+        </div>
+        <div className="hidden shrink-0 items-center gap-2 lg:flex">
+          <SmoothScrollLink
+            href={eventData.event.registrationLink}
+            className="inline-flex rounded-full bg-[#C8104A] px-4 py-2 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#9B1B5A] sm:text-sm"
+          >
+            {eventData.hero.ctaPrimary}
+          </SmoothScrollLink>
+          <SmoothScrollLink
+            href="#programa"
+            className="inline-flex rounded-full border border-[#C8104A] bg-white px-4 py-2 text-xs font-semibold text-[#C8104A] transition hover:-translate-y-0.5 hover:bg-[#C8104A]/10 sm:text-sm"
+          >
+            {eventData.hero.ctaSecondary}
+          </SmoothScrollLink>
         </div>
 
         <div className="relative flex min-w-0 items-center gap-2 lg:hidden">
