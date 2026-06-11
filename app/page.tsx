@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import CountdownTimer from "@/components/CountdownTimer";
 import AboutSection from "@/components/AboutSection";
 import TopicsSection from "@/components/TopicsSection";
 import SpeakersSection from "@/components/SpeakersSection";
@@ -12,10 +11,9 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-full overflow-x-hidden bg-[#F8FAFC] pt-[112px] lg:pt-24">
+    <div className="relative min-h-full overflow-x-hidden bg-[#F8FAFC]">
       <Navbar />
       <HeroSection />
-      <CountdownTimer />
       <AboutSection />
       <TopicsSection />
       <SpeakersSection />
