@@ -1,14 +1,60 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { eventData } from "@/data/event-data";
 import SmoothScrollLink from "./SmoothScrollLink";
 
+const navItemIds = eventData.navItems.map((item) => item.id);
+
 export default function Navbar() {
+  const firstSectionId = navItemIds[0] ?? "";
+
+  const getHeaderHeight = () => {
+    if (typeof window === "undefined") return 0;
+    const header = document.querySelector<HTMLElement>("[data-site-header='true']");
+    return header?.offsetHeight ?? 0;
+  };
+
+  const normalizeHash = () => {
+    if (typeof window === "undefined") return firstSectionId;
+    const hash = window.location.hash.replace("#", "");
+    const normalized = hash ? hash.split("?")[0].split("#")[0] : "";
+    const exists = normalized ? navItemIds.includes(normalized) : false;
+    return exists ? normalized : firstSectionId;
+  };
+
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState(() => {
+    if (typeof window === "undefined") return firstSectionId;
+    return normalizeHash() || firstSectionId;
+  });
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const navScrollRef = useRef<HTMLDivElement>(null);
+
+  const syncActiveByScroll = useCallback(() => {
+    if (typeof window === "undefined") return;
+
+    const trigger = window.scrollY + getHeaderHeight() + 24;
+    let nextSection = firstSectionId;
+
+    for (let i = navItemIds.length - 1; i >= 0; i--) {
+      const sectionId = navItemIds[i];
+      const section = document.getElementById(sectionId);
+      if (!section) continue;
+
+      if (section.offsetTop <= trigger) {
+        nextSection = sectionId;
+        break;
+      }
+    }
+
+    setActiveSection((current) => (current === nextSection ? current : nextSection));
+  }, [firstSectionId]);
+
+  const selectSection = useCallback((sectionId: string) => {
+    setActiveSection(sectionId);
+  }, []);
 
   const updateScrollButtons = () => {
     const el = navScrollRef.current;
@@ -26,9 +72,19 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
+      syncActiveByScroll();
     };
+
+    const syncSectionByHash = () => {
+      const normalized = normalizeHash();
+      setActiveSection(normalized);
+      syncActiveByScroll();
+    };
+
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("hashchange", syncSectionByHash);
+    window.addEventListener("popstate", syncSectionByHash);
 
     const el = navScrollRef.current;
     if (el) {
@@ -39,12 +95,21 @@ export default function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("hashchange", syncSectionByHash);
+      window.removeEventListener("popstate", syncSectionByHash);
       window.removeEventListener("resize", updateScrollButtons);
       if (el) {
         el.removeEventListener("scroll", updateScrollButtons);
       }
     };
-  }, []);
+  }, [syncActiveByScroll]);
+
+  const baseTabClass =
+    "rounded-full px-2.5 py-2 text-sm font-semibold transition-colors border";
+  const inactiveTabClass =
+    "text-[#0F172A] border-[#C8104A]/25 hover:bg-[#C8104A]/10 hover:border-[#C8104A]/45 hover:text-[#C8104A]";
+  const activeTabClass =
+    "border-[#C8104A] bg-[#C8104A] text-white shadow-[0_8px_18px_rgba(200,16,74,0.35)]";
 
   return (
     <header
@@ -86,7 +151,10 @@ export default function Navbar() {
               <SmoothScrollLink
                 key={item.id}
                 href={item.href}
-                className="rounded-full px-2.5 py-2 text-sm font-medium text-[#0F172A] transition-colors hover:text-[#C8104A]"
+                onClick={() => selectSection(item.id)}
+                className={`${baseTabClass} ${
+                  activeSection === item.id ? activeTabClass : inactiveTabClass
+                }`}
               >
                 {item.label}
               </SmoothScrollLink>
@@ -138,20 +206,33 @@ export default function Navbar() {
             />
             <div
               ref={navScrollRef}
-              className="scrollbar-hide flex flex-nowrap items-center gap-2 overflow-x-auto overflow-y-hidden pr-1 overscroll-x-contain scroll-smooth touch-pan-x snap-x snap-mandatory"
+              className="nav-scrollbar-hidden flex flex-nowrap items-center gap-2 overflow-x-auto overflow-y-hidden pr-1 overscroll-x-contain scroll-smooth touch-pan-x snap-x snap-mandatory"
               onScroll={updateScrollButtons}
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
             >
               {eventData.navItems.map((item) => (
                 <SmoothScrollLink
                   key={item.id}
                   href={item.href}
-                  className="shrink-0 snap-start rounded-full px-3 py-2 text-xs font-medium text-[#0F172A] transition-colors hover:text-[#C8104A] sm:text-sm"
+                  onClick={() => selectSection(item.id)}
+                  className={`shrink-0 snap-start ${baseTabClass} ${
+                    activeSection === item.id ? activeTabClass : inactiveTabClass
+                  }`}
                 >
                   {item.label}
                 </SmoothScrollLink>
               ))}
             </div>
           </div>
+
+          <style jsx>{`
+            .nav-scrollbar-hidden::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
 
           <button
             type="button"

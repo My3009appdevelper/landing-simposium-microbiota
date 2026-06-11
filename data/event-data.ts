@@ -108,7 +108,7 @@ export const eventData = {
     modality: "Presencial / Híbrida / Virtual",
     registrationLink: "#registro",
     contactEmail: "contacto@yakultpuebla.org",
-    countdownTargetDate: "2026-10-15T09:00:00-06:00",
+    countdownTargetDate: "2026-09-09T08:30:00-06:00",
   },
   hero: {
     eyebrow: "Yakult presenta",
