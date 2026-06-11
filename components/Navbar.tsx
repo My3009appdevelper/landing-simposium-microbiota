@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { eventData } from "@/data/event-data";
 import SmoothScrollLink from "./SmoothScrollLink";
 
-const navItemIds = eventData.navItems.map((item) => item.id);
+const navItemIds: string[] = eventData.navItems.map((item) => item.id);
 
 export default function Navbar() {
   const firstSectionId = navItemIds[0] ?? "";
