@@ -6,14 +6,23 @@ export default function HeroSection() {
 
   return (
     <section id="inicio" className="relative overflow-hidden">
-      <div
-        className="isolate relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-[#172554] bg-cover bg-center bg-no-repeat px-6 py-24 text-white shadow-[0_40px_80px_rgba(15,23,42,0.35)] sm:px-10 sm:py-28 lg:min-h-[90vh] lg:bg-fixed lg:px-12"
-        style={{
-          backgroundImage: 'url("/images/hero/hero.jpg")',
-        }}
-      >
+      <div className="isolate relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-[#172554] px-6 py-24 text-white shadow-[0_40px_80px_rgba(15,23,42,0.35)] sm:px-10 sm:py-28 lg:min-h-[90vh] lg:px-12">
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(105deg,rgba(15,23,42,0.74),rgba(23,37,84,0.32)_48%,rgba(34,211,238,0.16)),linear-gradient(to_bottom,rgba(15,23,42,0.16),rgba(15,23,42,0.06)_54%,rgba(15,23,42,0.52))]"
+          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-fixed bg-center bg-no-repeat md:hidden"
+          style={{
+            backgroundImage: 'url("/images/hero/hero-portrait.jpg")',
+          }}
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center bg-no-repeat md:block lg:bg-fixed"
+          style={{
+            backgroundImage: 'url("/images/hero/hero.jpg")',
+          }}
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(105deg,rgba(15,23,42,0.74),rgba(23,37,84,0.32)_48%,rgba(34,211,238,0.16)),linear-gradient(to_bottom,rgba(15,23,42,0.16),rgba(15,23,42,0.06)_54%,rgba(15,23,42,0.52))]"
           aria-hidden
         />
 
