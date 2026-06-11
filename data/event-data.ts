@@ -29,6 +29,7 @@ export type Speaker = {
   institution: string;
   location: string;
   specialization: string;
+  photo: string;
   photoPlaceholder: string;
   hasProfile?: boolean;
 };
@@ -201,6 +202,7 @@ export const eventData = {
       institution: "Institución por confirmar",
       location: "Ciudad por confirmar",
       specialization: "Microbiota intestinal e inmunidad",
+      photo: "/images/ponentes/speaker1.jpg",
       photoPlaceholder: "D",
     },
     {
@@ -210,6 +212,7 @@ export const eventData = {
       institution: "Institución por confirmar",
       location: "Ciudad por confirmar",
       specialization: "Nutrición funcional y prebióticos",
+      photo: "/images/ponentes/speaker2.jpg",
       photoPlaceholder: "N",
     },
     {
@@ -219,6 +222,7 @@ export const eventData = {
       institution: "Institución por confirmar",
       location: "Ciudad por confirmar",
       specialization: "Biotecnología y postbióticos",
+      photo: "/images/ponentes/speaker3.jpg",
       photoPlaceholder: "B",
     },
     {
@@ -228,6 +232,7 @@ export const eventData = {
       institution: "Institución por confirmar",
       location: "Ciudad por confirmar",
       specialization: "Investigación epidemiológica",
+      photo: "/images/ponentes/speaker4.jpg",
       photoPlaceholder: "I",
     },
     {
@@ -237,6 +242,7 @@ export const eventData = {
       institution: "Institución por confirmar",
       location: "Ciudad por confirmar",
       specialization: "Nutrigenómica aplicada",
+      photo: "/images/ponentes/speaker5.jpg",
       photoPlaceholder: "E",
     },
     {
@@ -246,6 +252,7 @@ export const eventData = {
       institution: "Institución por confirmar",
       location: "Ciudad por confirmar",
       specialization: "Modelos microbiológicos",
+      photo: "/images/ponentes/speaker6.jpg",
       photoPlaceholder: "C",
     },
   ] as Speaker[],

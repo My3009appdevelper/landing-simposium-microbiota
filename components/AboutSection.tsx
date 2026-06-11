@@ -13,14 +13,14 @@ export default function AboutSection() {
         {eventData.highlights.map((item) => (
           <article
             key={item.label}
-            className="symbi-card w-full max-w-sm rounded-3xl p-6 text-center shadow-sm transition hover:translate-y-[-4px] hover:shadow-md"
+            className="w-full max-w-sm rounded-3xl border border-[rgba(15,23,42,0.12)] bg-[rgba(255,255,255,0.97)] p-6 text-center shadow-sm transition hover:translate-y-[-4px] hover:border-[#D71920]/60 hover:shadow-md"
           >
             <p className="text-4xl font-semibold text-[#C8104A]">{item.value}</p>
             <p className="mt-3 text-lg font-semibold text-[#0F172A]">{item.label}</p>
           </article>
         ))}
       </div>
-      <div className="grid justify-items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
+      <div className="grid justify-items-center gap-8 md:grid-cols-2">
         <p className="w-full rounded-3xl border border-white bg-white/90 p-6 text-justify text-base leading-7 text-[#475569] shadow-sm">
           {eventData.audience}
         </p>

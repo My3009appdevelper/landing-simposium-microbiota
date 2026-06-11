@@ -9,11 +9,11 @@ export default function HeroSection() {
       <div
         className="isolate relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-[#172554] bg-cover bg-center bg-no-repeat px-6 py-24 text-white shadow-[0_40px_80px_rgba(15,23,42,0.35)] sm:px-10 sm:py-28 lg:min-h-[90vh] lg:bg-fixed lg:px-12"
         style={{
-          backgroundImage: 'url("/images/hero/microbiomas.jpg")',
+          backgroundImage: 'url("/images/hero/hero.jpg")',
         }}
       >
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(105deg,rgba(15,23,42,0.8),rgba(200,16,74,0.42)_46%,rgba(23,37,84,0.28)),linear-gradient(to_bottom,rgba(15,23,42,0.18),rgba(15,23,42,0.08)_54%,rgba(15,23,42,0.56))]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(105deg,rgba(15,23,42,0.74),rgba(23,37,84,0.32)_48%,rgba(34,211,238,0.16)),linear-gradient(to_bottom,rgba(15,23,42,0.16),rgba(15,23,42,0.06)_54%,rgba(15,23,42,0.52))]"
           aria-hidden
         />
 
