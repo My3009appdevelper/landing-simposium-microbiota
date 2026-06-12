@@ -21,17 +21,17 @@ export default function AboutSection() {
         ))}
       </div>
       <div className="grid justify-items-center gap-8 md:grid-cols-2">
-        <p className="w-full rounded-3xl border border-white bg-white/90 p-6 text-justify text-base leading-7 text-[#475569] shadow-sm">
-          {eventData.audience}
-        </p>
-        <ul className="w-full symbi-card-subtle grid gap-3 rounded-3xl border border-white bg-white/95 p-6 text-justify shadow-sm">
-          {eventData.about.bullets.map((bullet) => (
-            <li key={bullet} className="flex items-start gap-2 text-justify text-sm text-[#0F172A]">
-              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#22D3EE]" />
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
+        {eventData.about.modalityCards.map((card) => (
+          <article
+            key={card.title}
+            className="w-full rounded-3xl border border-white bg-white/90 p-6 text-base leading-7 text-[#475569] shadow-sm"
+          >
+            <strong className="block text-lg font-semibold text-[#0F172A]">
+              {card.title}
+            </strong>
+            <p className="mt-2 text-justify">{card.description}</p>
+          </article>
+        ))}
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export default function SectionHeader({
         {title}
       </h2>
       {description ? (
-        <p className="text-block mt-4 max-w-3xl text-base leading-8 sm:text-lg">
+        <p className="text-block mt-4 max-w-3xl whitespace-pre-line text-base leading-8 sm:text-lg">
           {description}
         </p>
       ) : null}

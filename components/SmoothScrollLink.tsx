@@ -67,12 +67,23 @@ function syncHash(sectionId: string) {
   window.history.replaceState(null, "", `#${sectionId}`);
 }
 
+function isExternalHref(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
 export default function SmoothScrollLink({
   href,
   onClick,
   children,
+  target,
+  rel,
   ...props
 }: SmoothScrollLinkProps) {
+  const external = isExternalHref(href);
+  const safeTarget = target ?? (external ? "_blank" : undefined);
+  const safeRel =
+    external && safeTarget === "_blank" ? (rel ?? "noreferrer") : rel;
+
   const handleClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>) => {
       if (onClick) {
@@ -111,7 +122,13 @@ export default function SmoothScrollLink({
   );
 
   return (
-    <a href={href} onClick={handleClick} {...props}>
+    <a
+      href={href}
+      onClick={handleClick}
+      target={safeTarget}
+      rel={safeRel}
+      {...props}
+    >
       {children}
     </a>
   );

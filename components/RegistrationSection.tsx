@@ -30,7 +30,7 @@ export default function RegistrationSection() {
           </ol>
           <div className="mt-6 flex flex-wrap gap-4">
             <SmoothScrollLink
-              href={eventData.event.registrationLink}
+              href={eventData.event.paymentLink}
               className="rounded-full bg-[#C8104A] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
             >
               {eventData.registration.primaryCta}
@@ -67,7 +67,7 @@ export default function RegistrationSection() {
             ))}
           </div>
           <SmoothScrollLink
-            href="#registro"
+            href={eventData.event.registrationLink}
             className="mt-6 inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-[#172554]"
           >
             Registrarme a mi acceso

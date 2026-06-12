@@ -10,12 +10,16 @@ export default function SpeakersSection() {
         title="Speakers invitados"
         description="Perfiles profesionales de referencia, con datos actualizables en un solo archivo."
       />
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="flex flex-wrap justify-center gap-4">
         {eventData.speakers.map((speaker) => (
-          <SpeakerCard key={speaker.id} speaker={speaker} />
+          <div
+            key={speaker.id}
+            className="basis-full md:basis-[calc((100%_-_1rem)/2)] xl:basis-[calc((100%_-_2rem)/3)]"
+          >
+            <SpeakerCard speaker={speaker} />
+          </div>
         ))}
       </div>
     </section>
   );
 }
-
