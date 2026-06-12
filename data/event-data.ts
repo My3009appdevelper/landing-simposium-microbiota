@@ -86,10 +86,10 @@ export const eventData = {
   },
   brand: {
     eventName:
-      "Simposium: Microbiota y sus aplicaciones en la era de los bióticos",
+      "Simposium: Microbiota y sus implicaciones en la era de los bióticos",
     subtitle: "2da Jornada Académica",
     organizer: "Yakult / Yakult de Puebla",
-    logoTitle: "Simposium Microbiota",
+    logoTitle: "2da Jornada Académica",
   },
   navItems: [
     { id: "inicio", label: "Inicio", href: "#inicio" },
@@ -115,7 +115,7 @@ export const eventData = {
   hero: {
     eyebrow: "Yakult presenta",
     title:
-      "Microbiota y sus aplicaciones en la era de los bióticos",
+      "Microbiota y sus implicaciones en la era de los bióticos",
     intro:
       "Una experiencia académica dirigida a profesionales de la salud, residentes y estudiantes interesados en conocer los avances más relevantes sobre microbiota intestinal, nutrición y su impacto en la salud.",
     ctaPrimary: "Registrarme",

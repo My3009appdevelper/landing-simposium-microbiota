@@ -10,14 +10,14 @@ export default function HeroSection() {
         <div
           className="pointer-events-none absolute inset-0 z-0 bg-cover bg-fixed bg-center bg-no-repeat md:hidden"
           style={{
-            backgroundImage: 'url("/images/hero/hero-portrait.jpg")',
+            backgroundImage: 'url("/images/hero/hero1.png")',
           }}
           aria-hidden
         />
         <div
           className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center bg-no-repeat md:block lg:bg-fixed"
           style={{
-            backgroundImage: 'url("/images/hero/hero.jpg")',
+            backgroundImage: 'url("/images/hero/hero1.png")',
           }}
           aria-hidden
         />
