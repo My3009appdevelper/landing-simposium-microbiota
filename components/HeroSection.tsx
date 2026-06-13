@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { eventData } from "@/data/event-data";
 import CountdownTimer from "./CountdownTimer";
 
@@ -7,18 +8,13 @@ export default function HeroSection() {
   return (
     <section id="inicio" className="relative overflow-hidden">
       <div className="isolate relative flex min-h-[90vh] flex-col justify-center overflow-hidden bg-[#172554] px-6 py-24 text-white shadow-[0_40px_80px_rgba(15,23,42,0.35)] sm:px-10 sm:py-28 lg:min-h-[90vh] lg:px-12">
-        <div
-          className="pointer-events-none absolute inset-0 z-0 bg-cover bg-fixed bg-center bg-no-repeat md:hidden"
-          style={{
-            backgroundImage: 'url("/images/hero/hero1.png")',
-          }}
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-0 z-0 hidden bg-cover bg-center bg-no-repeat md:block lg:bg-fixed"
-          style={{
-            backgroundImage: 'url("/images/hero/hero1.png")',
-          }}
+        <Image
+          src="/images/hero/hero2.png"
+          alt=""
+          fill
+          preload
+          sizes="100vw"
+          className="pointer-events-none absolute inset-0 z-0 object-cover object-center"
           aria-hidden
         />
         <div
