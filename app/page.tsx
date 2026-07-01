@@ -8,7 +8,7 @@ import VenueSection from "@/components/VenueSection";
 import RegistrationSection from "@/components/RegistrationSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
-import RegistrationPrompt from "@/components/RegistrationPrompt";
+import RegistrationPopup from "@/components/RegistrationPopup";
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
       <RegistrationSection />
       <FAQSection />
       <Footer />
-      <RegistrationPrompt />
+      <RegistrationPopup />
     </div>
   );
 }

@@ -17,7 +17,7 @@ function setSessionFlag(key: string) {
   window.sessionStorage.setItem(key, "true");
 }
 
-export default function RegistrationPrompt() {
+export default function RegistrationPopup() {
   const [entryOpen, setEntryOpen] = useState(false);
   const [scrollOpen, setScrollOpen] = useState(false);
   const [entryPromptSettled, setEntryPromptSettled] = useState(false);
